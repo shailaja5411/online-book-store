@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home - Online Book Store
+{% endblock %}
+
+{% block content %}
+
+<section class="hero"
+    style="
+        background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url('{{ url_for('static', filename='images/background.jpg') }}');
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    ">
+
+    <div class="hero-content">
+
+        <h1 style="color: white;">
+            Find Your Next Favorite Book 📚
+        </h1>
+
+        <p style="color: white;">
+            Discover amazing books at great prices.
+        </p>
+
+        <a
+            href="{{ url_for('books_page') }}"
+            class="btn"
+        >
+            Browse Books
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="featured-books">
+
+    <h2>Featured Books</h2>
+
+    <p class="section-subtitle">
+        Explore some of our popular books.
+    </p>
+
+    <div class="books-container">
+
+        {% for book in books %}
+
+        <div class="book-card">
+
+            <div class="book-image">
+
+                <img
+                    src="{{ url_for('static', filename='images/' + book.image) }}"
+                    alt="{{ book.title }}"
+                >
+
+            </div>
+
+            <div class="book-info">
+
+                <h3>{{ book.title }}</h3>
+
+                <p>{{ book.author }}</p>
+
+                <h3>₹{{ book.price }}</h3>
+
+                <a
+                    href="{{ url_for('book_details', book_id=book.id) }}"
+                    class="btn"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

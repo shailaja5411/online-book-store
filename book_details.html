@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ book.title }} - Book Details
+{% endblock %}
+
+
+{% block content %}
+
+<section class="book-details">
+
+    <div class="large-book-image">
+        📖
+    </div>
+
+
+    <div class="book-information">
+
+        <h1>
+            {{ book.title }}
+        </h1>
+
+        <h3>
+            Author: {{ book.author }}
+        </h3>
+
+        <p>
+            Category: {{ book.category }}
+        </p>
+
+        <h2>
+            ₹{{ book.price }}
+        </h2>
+
+        <p>
+            This is a great book from our online bookstore.
+            More book information can be added here later.
+        </p>
+        <a href="{{ url_for('add_to_cart', book_id=book.id) }}"
+   class="btn">
+
+    🛒 Add to Cart
+
+        </a>
+
+
+
+
+        <a href="{{ url_for('books_page') }}"
+           class="back-link">
+
+            ← Back to Books
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

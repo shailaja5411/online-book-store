@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}
+Checkout - Online Book Store
+{% endblock %}
+
+
+{% block content %}
+
+<section class="form-section">
+
+    <h1>
+        Checkout
+    </h1>
+
+
+    <form>
+
+        <label>
+            Full Name
+        </label>
+
+        <input
+            type="text"
+            placeholder="Enter your full name"
+        >
+
+
+        <label>
+            Address
+        </label>
+
+        <textarea
+            placeholder="Enter your address">
+        </textarea>
+
+
+        <label>
+            Phone Number
+        </label>
+
+        <input
+            type="tel"
+            placeholder="Enter phone number"
+        >
+
+
+        <label>
+            Payment Method
+        </label>
+
+        <select>
+
+            <option>
+                Cash on Delivery
+            </option>
+
+            <option>
+                UPI
+            </option>
+
+            <option>
+                Card
+            </option>
+
+        </select>
+
+
+        <button type="submit" class="btn">
+            Place Order
+        </button>
+
+    </form>
+
+</section>
+
+{% endblock %}

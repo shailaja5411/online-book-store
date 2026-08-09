@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+Orders - Online Book Store
+{% endblock %}
+
+
+{% block content %}
+
+<section class="orders-page">
+
+    <h1>
+        My Orders
+    </h1>
+
+    <div class="empty-orders">
+
+        <h2>
+            No orders yet
+        </h2>
+
+        <p>
+            Your orders will appear here after you purchase books.
+        </p>
+
+        <a href="{{ url_for('books_page') }}"
+           class="btn">
+
+            Start Shopping
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

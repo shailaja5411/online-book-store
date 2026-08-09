@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}
+Books - Online Book Store
+{% endblock %}
+
+
+{% block content %}
+
+<section class="books-page">
+
+    <h1>📚 Our Books</h1>
+
+    <p class="page-subtitle">
+        Explore our collection of amazing books.
+    </p>
+
+
+    <div class="books-container">
+
+        {% for book in books %}
+
+        <div class="book-card">
+
+            <!-- BOOK IMAGE -->
+
+            <div class="book-image">
+
+                <img
+                    src="{{ url_for('static', filename='images/' + book.image) }}"
+                    alt="{{ book.title }}"
+                >
+
+            </div>
+
+
+            <!-- BOOK INFORMATION -->
+
+            <div class="book-info">
+
+                <h2>
+                    {{ book.title }}
+                </h2>
+
+                <p>
+                    <strong>Author:</strong>
+                    {{ book.author }}
+                </p>
+
+                <p>
+                    <strong>Category:</strong>
+                    {{ book.category }}
+                </p>
+
+                <h3>
+                    ₹{{ book.price }}
+                </h3>
+
+
+                <!-- VIEW DETAILS -->
+
+                <a
+                    href="{{ url_for('book_details', book_id=book.id) }}"
+                    class="btn"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}
